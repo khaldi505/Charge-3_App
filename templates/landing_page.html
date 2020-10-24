@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge-3 - music</title>
+</head>
+<body>
+
+    <div id="left">
+        <form action="/login" method="GET">
+            <input id="button" type="submit" value="connect to spotify" 
+                 name="Submit" id="frm1_submit"/>
+        </form>
+    </div>
+    <div id="right"></div>
+    <div id="img"><img src={{ image_file }} ></div>
+</body>
+</html>
