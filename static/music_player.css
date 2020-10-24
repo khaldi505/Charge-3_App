@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #1a1a1a;
+  background: url(https://www.retro-synthwave.com/wp-content/uploads/2016/10/retro-synthwave_GIF-01-21.gif);
+  background-size: 100%;
+  font-family: 'Alata', sans-serif;
+}
+
+
+#glass{
+  color: #fff;
+  width: auto;
+  padding: 50px;
+  text-align: center;
+  backdrop-filter: blur(100px);
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.5); 
+  background: rgba(0,0,0,0.25);
+}
