@@ -1,42 +1,52 @@
-from flask import Flask, render_template, request, session, redirect, url_for
-import spotipy
-from spotipy import oauth2
-from spotipy.oauth2 import SpotifyOAuth
 import os
+from flask import Flask, render_template, request, session, redirect, url_for
+from flask_session import Session
+import spotipy
+import uuid
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+app.config['SECRET_KEY'] = os.urandom(64)
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = './.flask_session/'
+Session(app)
 
-SCOPE = "playlist-modify-public user-read-recently-played user-top-read" \
-        " user-read-currently-playing user-follow-read user-follow-modify" \
-        " user-modify-playback-state playlist-modify-private"
-CACHE = '.spotifycache'
-sp_oauth = oauth2.SpotifyOAuth(scope=SCOPE, cache_path=CACHE)
+caches_folder = './.spotify_caches/'
+if not os.path.exists(caches_folder):
+    os.makedirs(caches_folder)
 
+def session_cache_path():
+    return caches_folder + session.get('uuid')
 
-@app.route('/', methods=["GET"])
-def home():
+@app.route('/')
+def index():
     return render_template("landing_page.html", image_file=url_for("static", filename="home.png"))
+
+
+auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private', 
+                                                show_dialog=True)
 
 
 @app.route('/login')
 def login():
-    if not session.get("logged_in"):
-        url = sp_oauth.get_authorize_url()
-        return redirect(url)
-    else:
-        return redirect(url_for("profile"))
+    if not session.get('uuid'):
+        session['uuid'] = str(uuid.uuid4())    
+    url = auth_manager.get_authorize_url()
+    return redirect(url)
 
-@app.route('/log_out')
-def logout():
-    session["logged_in"] = False
-    return home()
+@app.route("/callback/")
+def callback():
+    auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private', 
+                                                cache_path=session_cache_path(), show_dialog=True)
+    if request.args.get("code"):
+        auth_manager.get_access_token(request.args.get("code"))
+    return redirect("/profile")
 
-
-@app.route("/profile")
+@app.route('/profile')
 def profile():
-    return render_template("profile.html")
+    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_path=session_cache_path())
+    result = spotipy.Spotify(auth_manager=auth_manager)
+    return result.me()
 
 
 if __name__ == '__main__':
-    app.run()
+	app.run(threaded=True, port=int(os.environ.get("PORT", 5000)))
