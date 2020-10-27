@@ -8,11 +8,16 @@
 <body>
 
     <img src="" alt="">
-    <h1>Username: </h1>
-    <h1>Followers: </h1>
-    <ul> Tracks </ul>
+    <input type="search">
+    <h1>Username: {{ username }}</h1>
+    <h1>spotify profile: {{ profile_url }}</h1>
+    <h1>Followers: {{ followers }}</h1>
+    <h1> Tracks </h1>
+    <h1>current: 
+        {{ current }}
+    </h1>
 
-    <form action="/log_out" method="GET">
+    <form action="/logout" method="GET">
         <input id="button" type="submit" value="Log out" name="Submit" id="frm1_submit"/>
     </form>
 </body>

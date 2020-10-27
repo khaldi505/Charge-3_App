@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <div class="cover-photo">
+        <img src={{ profile_pic }} class="profile">
+      </div>
+      <div class="profile-name">
+          {{ user_name }}
+          Followers: {{ followers }}
+      </div>
+          <div id="tracks">
+              <h4> Saved Tracks: </h4>
+    <ul>
+        {%  for track in tracks["items"] %}
+            <li> {{ track["track"]["name"] }} </li>
+        {% endfor %}
+    </ul>
+      </div>
+    </div>
+</body>
+</html>

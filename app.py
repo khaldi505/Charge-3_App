@@ -22,7 +22,7 @@ def index():
     return render_template("landing_page.html", image_file=url_for("static", filename="home.png"))
 
 
-auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private', 
+auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private user-library-read',
                                                 show_dialog=True)
 
 
@@ -41,12 +41,24 @@ def callback():
         auth_manager.get_access_token(request.args.get("code"))
     return redirect("/profile")
 
-@app.route('/profile')
+@app.route('/profile', methods=["GET", "POST"])
 def profile():
     auth_manager = spotipy.oauth2.SpotifyOAuth(cache_path=session_cache_path())
     result = spotipy.Spotify(auth_manager=auth_manager)
-    return result.me()
+    tracks = result.current_user_saved_tracks()
+    result = result.me()
+    return render_template("profile_1.html", user_name=result["display_name"], followers=result["followers"]["total"], tracks=tracks, profile_pic=url_for("static", filename="profile_pic.png"))
 
+@app.route('/logout')
+def logout():
+    os.remove(session_cache_path())
+    session.clear()
+    try:
+        # Remove the CACHE file (.cache-test) so that a new user can authorize.
+        os.rmdir(caches_folder)
+    except OSError as e:
+        print("Error: %s - %s." % (e.filename, e.strerror))
+    return redirect('/')
 
 if __name__ == '__main__':
 	app.run(threaded=True, port=int(os.environ.get("PORT", 5000)))
