@@ -47,7 +47,25 @@ def profile():
     result = spotipy.Spotify(auth_manager=auth_manager)
     tracks = result.current_user_saved_tracks()
     result = result.me()
-    return render_template("profile_1.html", user_name=result["display_name"], followers=result["followers"]["total"], tracks=tracks, profile_pic=url_for("static", filename="profile_pic.png"))
+    return render_template("profile_2.html", user_name=result["display_name"], followers=result["followers"]["total"], tracks=tracks, profile_pic=url_for("static", filename="profile_pic.png"))
+
+
+@app.route('/top_tracks')
+def top_tracks():
+    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_path=session_cache_path())
+    result = spotipy.Spotify(auth_manager=auth_manager)
+    results = result.current_user_saved_tracks()
+    user = result.me()
+    return render_template("top_tracks.html", results=results, username=user["display_name"])
+
+
+@app.route('/add_new_playlist')
+def add():
+    return("add_new_playlist")
+
+
+
+
 
 @app.route('/logout')
 def logout():
