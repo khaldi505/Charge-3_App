@@ -1,27 +1,26 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #left{
-    width: 50%;
-    height: 100vh;
-    background: #05ffa1;
+  width: 50%;
+  height: 100vh;
+  background: #05ffa1;
 }
 
 #right{
-    width: 50%;
-    height: 100vh;
-    background: #fffb96;
-    position: absolute;
-    top: 0;
-    right: 0;
+  width: 50%;
+  height: 100vh;
+  background: #fffb96;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 #img{
-    width: 200px;
-    position: absolute;
-    top: 10%;
-    left: 750px;
+  width: 200px;
+  position: absolute;
+  top: 10%;
+  left: 750px;
 }
-

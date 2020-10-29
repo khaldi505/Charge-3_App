@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <div class="cover-photo">
+        <img src={{ profile_pic }} class="profile">      </div>
+
+      <div class="profile-name"> {{ user_name }} </div>
+      <p class="followers">Followers: {{ followers }}</p>
+
+
+      <form class="buttons"   action="/add_new_playlist" method="GET">
+          <input class="create" type="submit" value="create playlist"
+                 name="Submit" id="frm1_submit"/>
+          <button class="top" type="submit" formaction="/top_tracks">saved tracks</button>
+      </form>
+    </div>
+</body>
+</html>

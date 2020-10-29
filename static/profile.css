@@ -1,11 +1,11 @@
 body{
   font-family: Montserrat, sans-serif;
-  background: #28223f;
+  background: #d8e5c6;
 }
 .container{
   user-select: none;
   margin: 100px auto;
-  background: #231e39;
+  background: #8c9d75;
   color: #b3b8cd;
   border-radius: 5px;
   width: 350px;
@@ -25,39 +25,41 @@ body{
   margin: 93px 0 0 -175px;
   border: 1px solid #1f1a32;
   padding: 7px;
-  background: #292343;
+  background: #1a1c20;
 }
 .profile-name{
   font-size: 25px;
   font-weight: bold;
   margin: 27px 0 0 120px;
 }
-.about{
+.followers{
   margin-top: 35px;
   line-height: 21px;
 }
-button{
-  margin: 10px 0 40px 0;
-}
-.msg-btn, .follow-btn{
-  background: #03bfbc;
-  border: 1px solid #03bfbc;
-  padding: 10px 25px;
+.create, .top{
+  background-color:#62a17e;
+  border-radius:28px;
+  padding:16px 31px;
   color: #231e39;
   border-radius: 3px;
-  font-family: Montserrat, sans-serif;
+  font-family:Arial;
+  font-size:17px;
   cursor: pointer;
+  display:inline-block;
+  color:#ffffff;
+  border:1px solid #78c299;
+  text-shadow:0px 1px 0px #283966;
+  text-decoration:none;
 }
-.follow-btn{
-  margin-left: 10px;
-  background: transparent;
-  color: #02899c;
+.create:hover, .top:hover {
+  background-color:#78c299;
 }
-.follow-btn:hover{
-  color: #231e39;
-  background: #03bfbc;
-  transition: .5s;
+
+.create:active, .top:active {
+	position:relative;
+	top:1px;
 }
+
 .container i{
   padding-left: 20px;
   font-size: 20px;
