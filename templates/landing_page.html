@@ -4,15 +4,38 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='home_styles.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charge-3 - music</title>
+    <title>Charge-3</title>
 </head>
 <body>
-
     <div id="left">
-        <form action="/login" method="GET">
-            <input id="button" type="submit" value="connect to spotify" 
-                 name="Submit" id="frm1_submit"/>
+        <div id="title">Charge-3</div>
+    <div>
+        <h1> What is Lorem Ipsum?</h1>
+        <p style="font-size:29px" >
+           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Praesentium, harum temporibus illo corporis
+           vel voluptatem quod ducimus minus 
+           dicta sapiente recusandae enim animi quia voluptatum non ipsam amet saepe eligendi! 
+        </p>
+
+        <h1> What is Lorem Ipsum?</h1>
+        <p style="font-size:29px" >
+           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Praesentium, harum temporibus illo corporis
+           vel voluptatem quod ducimus minus 
+           dicta sapiente recusandae enim animi quia voluptatum non ipsam amet saepe eligendi! 
+        </p>
+    </div>
+    <div class="buttons">
+        <form class="button" action="/login" method="GET">
+            <input class="myButton" type="submit" value="connect to spotify" 
+                name="Submit" id="frm1_submit"/>
         </form>
+        <form class="button" action="/login" method="GET">
+            <input class="myButton" type="submit" value="connect to spotify" 
+                name="Submit" id="frm1_submit"/>
+        </form>
+    </div>
     </div>
     <div id="right"></div>
     <div id="img"><img src={{ image_file }} ></div>
