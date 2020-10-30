@@ -61,10 +61,19 @@ def top_tracks():
 
 @app.route('/add_new_playlist')
 def add():
-    return("add_new_playlist")
+    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_path=session_cache_path())
+    Spotify = spotipy.Spotify(auth_manager=auth_manager)
 
-
-
+    user_id = Spotify.me()['id']
+    user_saved_tracks = Spotify.current_user_saved_tracks()
+    ids = []
+    for idx, item in enumerate(user_saved_tracks['items']):
+        ids.append(item['track']['artists'][0]['id'])
+    recommendations_result = Spotify.recommendations(seed_artists=ids[0:5])
+    Spotify.user_playlist_create(user=user_id, name="charge-3", public=True, description="charge-3's playlist based on your favorite tracks")
+    for element in recommendations_result["tracks"]:
+        
+    return render_template("add_new_playlist.html", recommendations_result=recommendations_result)
 
 
 @app.route('/logout')
