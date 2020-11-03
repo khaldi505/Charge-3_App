@@ -1,12 +1,16 @@
 # Charge-3_App
 ## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
+* [Introduction](#Introduction)
+* [Installation](#Installation)
+* [Contributing](#Contributing)
+* [Related projects](#Related projects)
+* [Licensing](#Licensing)
 
-## General info
-This project is simple music recommendation app 
-will be updated later
+## Introduction
+
+## Introduction
+Charge-3 is a simple music recommendation app made with flask and spotipy 
+
 ## Technologies
 Project is created with:
 * Flask
