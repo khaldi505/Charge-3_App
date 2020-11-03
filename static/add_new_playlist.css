@@ -1,0 +1,67 @@
+body{
+    background-color: #f4f4f4;
+}
+
+.berber{
+    width: 350px;
+    height: 110px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin-left: 35%;
+    
+    margin-top: 10px;
+}
+.berber-image{
+    width: 50px;
+    height: 50px;
+    background-color: #c0f5d3;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    float: left;
+}
+.berber-fullname{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding-left: 80px;
+    padding-top: 10px;
+    
+}
+.berber-dukkan{
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding-left: 80px;
+    margin-top: -20px;
+    color: #cbd3d8;
+}
+.berber-buttons{
+    width: 100%;
+    height: 35px;
+    
+}
+.quick-date{
+    width: 125px;
+    height: 35px;
+    border-radius: 2px;
+    border: none;
+    background-color: #dfd3d7;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    margin-left: 75px;
+    float: left;
+}
+.custom-date{
+    width: 125px;
+    height: 35px;
+    border-radius: 2px;
+    border: none;
+    background-color: #d6eaf5;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    margin-left: 215px;
+    float: left;
+    margin-top: -35px;
+}

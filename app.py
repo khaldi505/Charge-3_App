@@ -22,7 +22,7 @@ def index():
     return render_template("landing_page.html", image_file=url_for("static", filename="home.png"))
 
 
-auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private user-library-read',
+auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing user-library-modify playlist-read-private playlist-modify-private user-library-read',
                                                 show_dialog=True)
 
 
@@ -47,7 +47,8 @@ def profile():
     result = spotipy.Spotify(auth_manager=auth_manager)
     tracks = result.current_user_saved_tracks()
     result = result.me()
-    return render_template("profile_2.html", user_name=result["display_name"], followers=result["followers"]["total"], tracks=tracks, profile_pic=url_for("static", filename="profile_pic.png"))
+
+    return render_template("profile_2.html", user_name=result["display_name"], followers=result["followers"]["total"], tracks=tracks, profile_pic=url_for("static", filename="profile.jpg"))
 
 
 @app.route('/top_tracks')
@@ -70,11 +71,12 @@ def add():
     for idx, item in enumerate(user_saved_tracks['items']):
         ids.append(item['track']['artists'][0]['id'])
     recommendations_result = Spotify.recommendations(seed_artists=ids[0:5])
-    Spotify.user_playlist_create(user=user_id, name="charge-3", public=True, description="charge-3's playlist based on your favorite tracks")
-    for element in recommendations_result["tracks"]:
-        
+    recommendations_result = recommendations_result["tracks"] 
     return render_template("add_new_playlist.html", recommendations_result=recommendations_result)
 
+@app.route("/about")
+def about():
+    return render_template("about.html", image_file=url_for("static", filename="home.png"))
 
 @app.route('/logout')
 def logout():

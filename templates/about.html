@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge-3</title>
+</head>
+<body>
+    <div id="left">
+        <div id="title">Charge-3</div>
+    <div>
+        <h1> Features </h1>
+        <p style="font-size:29px" >
+            with Charge-3 you can find new songs of your most recent artists
+            and bands 
+        </p>
+        <h1>Upcoming Features ?</h1>
+        <p style="font-size:29px" >
+           <ol>
+            <li>local artist support a feature that allows you to share your local artist tracks.</li>
+            <li>more advanced recomandtion system</li>
+            <li>accept the terms, and you're good to go</li> 
+           </ol>
+        </p>
+    </div>
+    <br>
+    <br>
+    <div class="buttons">
+        <form class="button" action="/" method="GET">
+            <input class="myButton" type="submit" value="home page" 
+                name="Submit" id="frm1_submit"/>
+        </form>
+        <form class="button" action="/login" method="GET">
+            <input class="myButton" type="submit" value="login" 
+                name="Submit" id="frm1_submit"/>
+        </form>
+    </div>
+    </div>
+    <div id="right"></div>
+    <div id="img"><img src={{ image_file }} ></div>
+</body>
+</html>

@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_new_playlist.css') }}">
+    <title>genreate a new playlist</title>
 </head>
 <body>
+
+{% for track in recommendations_result %}
+    <div class="berberler">
+        <div class="berber">
+            <div class="berber-image"></div>
+            <p class="berber-fullname"> {{ track["artists"][0]["name"] }} - {{ track["name"] }} </p>
+            <p class="berber-dukkan">album: {{ track["album"]["name"]}} </p>
+    </div>
+{% endfor %}
 
 </body>
 </html>

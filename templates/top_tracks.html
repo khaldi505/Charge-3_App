@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_new_playlist.css') }}">
     <title>{{ username }} top tracks</title>
 </head>
 <body>
-    <div>
-        {% for item in results['items'] %}
-            {% set track = item['track'] %}
-            <p> {{ loop.index0 }} {{ track['artists'][0]['name'] }} {{ track["name"] }} </p>  
-        {% endfor %}
-    </div>
+
+    {% for track in results['items'] %}
+    <div class="berberler">
+        <div class="berber">
+            <div class="berber-image"></div>
+            <p class="berber-fullname"> {{ track["track"]["artists"][0]["name"] }} - {{ track["name"] }} </p>
+            <p class="berber-dukkan">album: {{ track["track"]["album"]["name"]}} </p>
+{% endfor %}
+</div>
+
 </body>
 </html>
