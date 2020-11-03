@@ -29,6 +29,7 @@ auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing us
 @app.route('/login')
 def login():
     if not session.get('uuid'):
+	# assign the new user session with unique id
         session['uuid'] = str(uuid.uuid4())    
     url = auth_manager.get_authorize_url()
     return redirect(url)
@@ -38,7 +39,9 @@ def callback():
     auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private', 
                                                 cache_path=session_cache_path(), show_dialog=True)
     if request.args.get("code"):
+	# get the code qurey from the url and passe it to the access token
         auth_manager.get_access_token(request.args.get("code"))
+	# when it's done redirect to the profile page
     return redirect("/profile")
 
 @app.route('/profile', methods=["GET", "POST"])
