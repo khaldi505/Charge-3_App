@@ -4,7 +4,7 @@
 * [Installation](#Installation)
 * [Contributing](#Contributing)
 * [Usage](#Usage)
-* [Related_projects](#Related projects)
+* [Related_projects](#Related_projects)
 * [Known_bugs](#Known_bugs)
 * [Licensing](#Licensing)
 
@@ -12,7 +12,8 @@
 ## Introduction
 Charge-3 is a simple music recommendation app aimed at helping people to find new music based on their favorite spotify artists cause personally sometimes i struggle to find new music to boost my mood so i had to make an app that do me something usefull on my daily life and teach me new techs during the process.
 ![alt text](https://github.com/khaldi505/Charge-3_App/blob/main/img/Screenshot%20from%202020-11-03%2016-40-52.png)
-
+![alt text](https://github.com/khaldi505/Charge-3_App/blob/main/img/Screenshot%20from%202020-11-03%2016-47-32.png)
+![alt text](https://github.com/khaldi505/Charge-3_App/blob/main/img/Screenshot%20from%202020-11-03%2016-47-44.png)
 ### Technologies
 Project is created with:
 * Flask
@@ -40,7 +41,7 @@ to get your spotify id and secret key create a spotify account if you don't have
 [iheb khaldi](https://github.com/khaldi505/)
 
 
-## Related projects
+## Related-projects
 this project was inspired by another web app called [airkhruang](https://space.airkhruang.com/)
 
 ## Known_bugs
