@@ -11,6 +11,8 @@
 
 ## Introduction
 Charge-3 is a simple music recommendation app aimed at helping people to find new music based on their favorite spotify artists cause personally sometimes i struggle to find new music to boost my mood so i had to make an app that do me something usefull on my daily life and teach me new techs during the process.
+This app can be deployed on your local machine you can see usage to understand how to start the server.
+
 ![alt text](https://github.com/khaldi505/Charge-3_App/blob/main/img/Screenshot%20from%202020-11-03%2016-40-52.png)
 ![alt text](https://github.com/khaldi505/Charge-3_App/blob/main/img/Screenshot%20from%202020-11-03%2016-47-32.png)
 ![alt text](https://github.com/khaldi505/Charge-3_App/blob/main/img/Screenshot%20from%202020-11-03%2016-47-44.png)
